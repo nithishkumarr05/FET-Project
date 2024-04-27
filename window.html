@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html ng-app="laptopManagementApp">
+
+<head>
+    <title>Laptop Management Form</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        button[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: #f9f9f9;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container" ng-controller="LaptopController as laptopCtrl">
+        <h1>Laptop for Windows</h1>
+        <form ng-submit="laptopCtrl.addLaptop()">
+            <label for="brand">Brand:</label>
+            <input type="text" id="brand" ng-model="laptopCtrl.newLaptop.brand" required><br>
+
+            <label for="laptopModel">Laptop Model:</label>
+            <input type="text" id="laptopModel" ng-model="laptopCtrl.newLaptop.laptopModel" required><br>
+
+            <label for="storage">Storage:</label>
+            <input type="text" id="storage" ng-model="laptopCtrl.newLaptop.storage" required><br>
+
+            <label for="phoneNumber">Phone Number:</label>
+            <input type="text" id="phoneNumber" ng-model="laptopCtrl.newLaptop.phoneNumber" required><br>
+
+            <label for="address">Address:</label>
+            <input type="text" id="address" ng-model="laptopCtrl.newLaptop.address" required><br>
+
+            <button type="submit">Add Laptop</button>
+        </form>
+
+        <h2>Laptops List</h2>
+        <div ng-repeat="laptop in laptopCtrl.laptops">
+            <ul>
+                <li style="white-space: pre-line;">
+                    {{ laptop.brand }} <br> Laptop Model: {{ laptop.laptopModel }}<br> Storage: {{ laptop.storage }} <br>Phone Number: {{ laptop.phoneNumber }} <br> Address: {{ laptop.address }}
+                </li>
+            </ul>
+            <br>
+        </div>
+    </div>
+
+    <script>
+        angular.module('laptopManagementApp', [])
+            .controller('LaptopController', function () {
+                var vm = this;
+                vm.laptops = [];
+
+                vm.newLaptop = {
+                    brand: '',
+                    laptopModel: '',
+                    storage: '',
+                    phoneNumber: '',
+                    address: ''
+                };
+
+                vm.addLaptop = function () {
+                    vm.laptops.push(angular.copy(vm.newLaptop));
+                    vm.clearForm();
+                };
+
+                vm.clearForm = function () {
+                    vm.newLaptop = {
+                        brand: '',
+                        laptopModel: '',
+                        storage: '',
+                        phoneNumber: '',
+                        address: ''
+                    };
+                };
+            });
+    </script>
+</body>
+
+</html>

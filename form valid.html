@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Order Your Laptop</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap">
+    <style>
+        body {
+            background-image: url("back.jpg");
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+        }
+
+        .container {
+            max-width: 700px;
+            width: 100%;
+            background-color: #e6dbdb;
+            padding: 25px 30px;
+            border-radius: 5px;
+            box-shadow: 0 5px 10px rgba(160, 18, 18, 0.15);
+        }
+
+        .container .title {
+            font-size: 25px;
+            font-weight: 500;
+            position: relative;
+        }
+
+        .container .title::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 3px;
+            width: 30px;
+            border-radius: 5px;
+            background: linear-gradient(135deg, #b2f14c, #add948);
+        }
+
+        .content form .user-details {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 20px 0 12px 0;
+        }
+
+        form .user-details .input-box {
+            margin-bottom: 15px;
+            width: calc(100% / 2 - 20px);
+        }
+
+        form .input-box span.details {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .user-details .input-box input {
+            height: 45px;
+            width: 100%;
+            outline: none;
+            font-size: 16px;
+            border-radius: 5px;
+            padding-left: 15px;
+            border: 1px solid #ccc;
+            border-bottom-width: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .user-details .input-box input:focus,
+        .user-details .input-box input:valid {
+            border-color: #51cdf0;
+        }
+
+        form .gender-details .gender-title {
+            font-size: 20px;
+            font-weight: 500;
+        }
+
+        form .category {
+            display: flex;
+            width: 80%;
+            margin: 14px 0;
+            justify-content: space-between;
+        }
+
+        form .category label {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        form .category label .dot {
+            height: 18px;
+            width: 18px;
+            border-radius: 50%;
+            margin-right: 10px;
+            background: #d9d9d9;
+            border: 5px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        #dot-1:checked~.category label .one,
+        #dot-2:checked~.category label .two,
+        #dot-3:checked~.category label .three {
+            background: black;
+            border-color: #d9d9d9;
+        }
+
+        form input[type="radio"] {
+            display: none;
+        }
+
+        form .button {
+            height: 45px;
+            margin: 35px 0;
+        }
+
+        form .button input {
+            height: 100%;
+            width: 100%;
+            border-radius: 5px;
+            border: none;
+            color: #fff;
+            font-size: 18px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: linear-gradient(135deg, #424747, #a2f7f7);
+        }
+
+        form .button input:hover {
+            background: linear-gradient(-135deg, #3bd661, #3de23d);
+        }
+
+        @media (max-width: 584px) {
+            .container {
+                max-width: 100%;
+            }
+
+            form .user-details .input-box {
+                margin-bottom: 15px;
+                width: 100%;
+            }
+
+            form .category {
+                width: 100%;
+            }
+
+            .content form .user-details {
+                max-height: 300px;
+                overflow-y: scroll;
+            }
+
+            .user-details::-webkit-scrollbar {
+                width: 5px;
+            }
+        }
+
+        @media (max-width: 459px) {
+            .container .content .category {
+                flex-direction: column;
+            }
+        }
+
+        .container {
+            background-color: #f4f4f4;
+        }
+
+        * {
+            background-color: #f4f4f4;
+        }
+
+        form .user-details .input-box input {
+            border-radius: 8px;
+            padding: 12px;
+        }
+
+        form .button input {
+            background: linear-gradient(135deg, #029b14, #26da16);
+            transition: background 0.3s ease;
+        }
+
+        form .button input:hover {
+            background: linear-gradient(135deg, #c7d713, #a1470f);
+        }
+
+        .content form h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .user-details .input-box input {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            transition: border-color 0.3s ease;
+        }
+
+        .user-details .input-box input:focus,
+        .user-details .input-box input:valid {
+            border-color: #51cdf0;
+        }
+
+        .form .button input {
+            background: linear-gradient(135deg, #42d166, #3de23d);
+            color: white;
+            cursor: pointer;
+        }
+
+        .form .button input:hover {
+            background: linear-gradient(135deg, #3de23d, #42d166);
+        }
+
+        .form .user-details {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="title"></div>
+        <div class="content">
+            <form id="laptopForm">
+                <h1>Order Your Laptop</h1>
+                <div class="user-details">
+                    <div class="input-box">
+                        <span class="details">Name</span>
+                        <input type="text" placeholder="Enter your name" required id="t1">
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Phone Number</span>
+                        <input type="tel" pattern="[0-9]{10}" placeholder="Enter your Number" required id="t2">
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Address</span>
+                        <input type="text" placeholder="Enter your address" required id="t3">
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Pincode</span>
+                        <input type="text" pattern="[0-9]{6}" placeholder="Enter Your Pincode" required id="t4">
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Email Address</span>
+                        <input type="email" placeholder="Enter your email" required id="t5">
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Storage</span>
+                        <input type="number" placeholder="Enter storage" required id="t6">
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Model</span>
+                        <input type="text" placeholder="Enter your model" required id="t7">
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Color</span>
+                        <input type="text" placeholder="Enter color" required id="t8">
+                    </div>
+                </div>
+                <div class="button">
+                    <input type="button" onclick="orderLaptop()" value="Submit" /><br><br>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        function orderLaptop() {
+            var name = document.getElementById("t1").value;
+            var num = document.getElementById("t2").value;
+            var add = document.getElementById("t3").value;
+            var pin = document.getElementById("t4").value;
+            var email = document.getElementById("t5").value;
+            var sto = document.getElementById("t6").value;
+            var mod = document.getElementById("t7").value;
+            var col = document.getElementById("t8").value;
+    
+            // Simple validation
+            if (name === '' || num === '' || add === '' || pin === '' || email === '' || sto === '' || mod === '' || col === '') {
+                alert('Please fill in all fields');
+                return;
+            }
+    
+            // Validation for phone number length
+            if (num.length !== 10) {
+                alert('Please enter a valid phone number');
+                return;
+            }
+    
+            // Validation for pincode length
+            if (pin.length !== 6) {
+                alert('Please enter a valid pincode');
+                return;
+            }
+    
+            // Validation for email format
+            var emailRegex = /\S+@\S+\.\S+/;
+            if (!emailRegex.test(email)) {
+                alert('Please enter a valid email address');
+                return;
+            }
+    
+            // If all validations pass, proceed with form submission
+            $.ajax({
+                type: "POST",
+                url: "process_order.php",
+                data: {
+                    name: name,
+                    phone: num,
+                    address: add,
+                    pincode: pin,
+                    email: email,
+                    storage: sto,
+                    model: mod,
+                    color: col
+                },
+                success: function (response) {
+                    window.location.href = "display_order.html" + response;
+                },
+                error: function () {
+                    console.error("Error submitting the form");
+                }
+            });
+        }
+    </script>
+    
+</body>
+
+</html>

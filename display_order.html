@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Order Details</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #0e0e0e;
+            margin: 20px;
+            color: #080808;
+        }
+
+        h1 {
+            color: #dbe1e7;
+        }
+
+        #order-details {
+            background-color: #ffffff;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        strong {
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        span {
+            color: #f90f2a;
+        }
+
+        .success-message {
+            margin-top: 20px;
+            background-color: #5cb85c;
+            color: #ffffff;
+            padding: 15px;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Order Details</h1>
+        <div id="order-details">
+            <ul>
+                <li><strong>Name:</strong> <span id="name"></span></li>
+                <li><strong>Phone:</strong> <span id="phone"></span></li>
+                <li><strong>Address:</strong> <span id="address"></span></li>
+                <li><strong>Pincode:</strong> <span id="pincode"></span></li>
+                <li><strong>Email:</strong> <span id="email"></span></li>
+                <li><strong>Storage:</strong> <span id="storage"></span></li>
+                <li><strong>Model:</strong> <span id="model"></span></li>
+                <li><strong>Color:</strong> <span id="color"></span></li>
+            </ul>
+        </div>
+        
+        <div class="success-message">
+            <h1>Your Product is Ordered Successfully</h1>
+            <p>Thank you for your order!</p>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.8/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        var params = new URLSearchParams(window.location.search);
+
+        document.getElementById("name").innerText = params.get('name') || '';
+        document.getElementById("phone").innerText = params.get('phone') || '';
+        document.getElementById("address").innerText = params.get('address') || '';
+        document.getElementById("pincode").innerText = params.get('pincode') || '';
+        document.getElementById("email").innerText = params.get('email') || '';
+        document.getElementById("storage").innerText = params.get('storage') || '';
+        document.getElementById("model").innerText = params.get('model') || '';
+        document.getElementById("color").innerText = params.get('color') || '';
+    </script>
+</body>
+
+</html>
